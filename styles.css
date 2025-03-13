@@ -22,21 +22,24 @@ body {
     background-color: var(--black);
     color: var(--light-gray);
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .highlight {
     color: var(--dark-red);
 }
+
 /* Remove underline from links */
 a {
     text-decoration: none;
@@ -51,6 +54,7 @@ a {
 .info-item a:hover {
     color: var(--dark-red);
 }
+
 /* Enhanced contact info styling */
 .info-item {
     margin-bottom: 30px;
@@ -80,6 +84,7 @@ a {
 .info-item i {
     margin-right: 10px;
 }
+
 /* Original button styles */
 .btn {
     display: inline-block;
@@ -103,9 +108,7 @@ a {
 .btn:active {
     background-color: transparent;
     color: var(--dark-red);
-    /* Ensure text is visible with higher opacity */
     opacity: 1;
-    /* Add text shadow for better visibility */
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -153,7 +156,7 @@ a {
 /* Header Styles */
 header {
     background-color: rgba(10, 10, 10, 0.9);
-    padding: 20px 0;
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     z-index: 100;
@@ -176,20 +179,17 @@ nav {
 .logo-img {
     width: 40px;
     height: 40px;
-    /* This will be set by JavaScript */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 header .logo-img {
-    /* Potentially larger in the header */
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 footer .logo-img {
-    /* Potentially smaller in the footer */
     width: 30px;
     height: 30px;
 }
@@ -261,12 +261,14 @@ footer .logo-img {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
+
 .hero-svg-background {
     position: absolute;
     top: 0;
@@ -276,6 +278,7 @@ footer .logo-img {
     z-index: -1;
     pointer-events: none;
 }
+
 .hero::before {
     content: "";
     position: absolute;
@@ -292,6 +295,8 @@ footer .logo-img {
 
 .hero-content {
     max-width: 700px;
+    width: 100%;
+    padding: 0 20px;
 }
 
 .hero-content h1 {
@@ -312,7 +317,6 @@ footer .logo-img {
 }
 
 /* Gallery Section */
-/* Add these styles to your CSS for background transitions */
 .gallery {
     transition: background 0s ease;
     background-size: cover;
@@ -344,6 +348,7 @@ footer .logo-img {
     background: radial-gradient(circle, rgba(92, 1, 1, 0.74) 0%, transparent 50%), 
                 radial-gradient(circle, rgba(139, 0, 0, 0.404) 10%, transparent 50%);
 }
+
 /* Category transition animation */
 .category-transition-overlay {
     position: fixed;
@@ -385,6 +390,7 @@ footer .logo-img {
 .gallery-item:nth-child(6) { animation-delay: 0.6s; }
 .gallery-item:nth-child(7) { animation-delay: 0.7s; }
 .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+
 .filter-buttons {
     display: flex;
     justify-content: center;
@@ -409,7 +415,7 @@ footer .logo-img {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
 }
 
@@ -417,7 +423,7 @@ footer .logo-img {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    height: 300px;
+    height: 280px;
     cursor: pointer;
 }
 
@@ -489,6 +495,7 @@ footer .logo-img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    object-fit: contain;
 }
 
 .modal-caption {
@@ -529,6 +536,7 @@ footer .logo-img {
     position: relative;
     overflow: hidden;
 }
+
 .services-svg-background {
     position: absolute;
     top: 0;
@@ -559,7 +567,7 @@ footer .logo-img {
 }
 
 .service-card {
-    background-color: var(--light--black);
+    background-color: transparent;
     border-radius: 10px;
     padding: 30px;
     text-align: center;
@@ -591,7 +599,9 @@ footer .logo-img {
 .about {
     position: relative;
     overflow: hidden;
+    padding: 100px 0;
 }
+
 .about::before {
     content: "";
     position: absolute;
@@ -615,7 +625,7 @@ footer .logo-img {
 
 .image-placeholder {
     width: 100%;
-    height: 100%;
+    height: 300px;
     background-color: #222;
     border-radius: 10px;
     display: flex;
@@ -693,6 +703,7 @@ footer .logo-img {
     transform: translateX(-50%);
     z-index: -1;
 }
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -767,7 +778,7 @@ footer .logo-img {
     border: 1px solid #444;
     border-radius: 5px;
     color: white;
-    font-size: 1rem;
+    font-size: 16px; /* Prevents iOS zoom on focus */
     transition: var(--transition);
 }
 
@@ -811,9 +822,17 @@ footer {
     .hero-content h1 {
         font-size: 2.8rem;
     }
+    
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
 }
 
 @media (max-width: 768px) {
+    section {
+        padding: 60px 0;
+    }
+    
     .menu-toggle {
         display: block;
     }
@@ -854,51 +873,136 @@ footer {
     }
     
     .stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Fix for About Me section */
+    .about {
+        padding-top: 120px; /* Increased padding to prevent content from being cut off */
+    }
+    
+    .about-content {
+        gap: 30px;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+    
+    /* Fix for stretched images */
+    .gallery-item {
+        height: 250px;
+    }
+    
+    .gallery-item img {
+        object-fit: cover;
+    }
+    
+    /* Better mobile menu */
+    .btn {
+        margin-bottom: 10px;
     }
 }
+
 @media (hover: none) {
     .gallery-item .overlay {
-      opacity: 1;
-      background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+        opacity: 1;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
     }
     
     /* Make buttons larger on touch devices */
     .prev, .next {
-      padding: 20px;
-      font-size: 36px;
+        padding: 20px;
+        font-size: 36px;
     }
-  }
-  @media (max-width: 576px) {
+}
+
+@media (max-width: 576px) {
     .hero-content h1 {
-      font-size: 1.8rem;
+        font-size: 1.8rem;
     }
     
     .section-header h2 {
-      font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .gallery-grid {
-      grid-template-columns: 1fr;
+        grid-template-columns: 1fr;
     }
     
     .filter-buttons {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-  }
-  .form-group input, 
-.form-group select, 
-.form-group textarea {
-  padding: 12px 15px;
-  font-size: 16px; /* Prevents iOS zoom on focus */
-}
-@media (max-width: 768px) {
+    
+    .filter-btn {
+        margin: 5px;
+        padding: 6px 15px;
+        font-size: 0.9rem;
+    }
+    
+    /* Fix for stretched images on smaller screens */
+    .gallery-item {
+        height: 220px;
+    }
+    
+    /* Fix for About Me section on small screens */
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat {
+        padding: 10px;
+        background-color: rgba(51, 51, 51, 0.5);
+        border-radius: 8px;
+    }
+    
+    /* Better button display on mobile */
     .btn {
-      padding: 15px 30px;
-      display: block;
-      width: 100%;
-      margin-bottom: 10px;
-      text-align: center;
+        padding: 12px 20px;
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
     }
-  }
+    
+    /* Fix for header on small screens */
+    header {
+        padding: 10px 0;
+    }
+    
+    /* Fix for modal on small screens */
+    .modal-content {
+        max-width: 90%;
+    }
+    
+    /* Fix for contact section on small screens */
+    .contact-grid {
+        gap: 30px;
+    }
+}
+
+/* Additional fixes for extreme mobile cases */
+@media (max-width: 360px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    .about-text h2 {
+        font-size: 1.6rem;
+    }
+}
